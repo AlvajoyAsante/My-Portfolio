@@ -1,0 +1,59 @@
+{% load static %}
+
+{% block about %}
+
+<section class="about section" id="about">
+    <h2 class="section__title">About Me</h2>
+    <span class="section__subtitle">My introduction</span>
+
+    <div class="about__container container grid">
+        <img src="{% static 'img/headshot_rv.jpg' %}" alt="" class="about__img"/>
+
+        <div class="about__data">
+            <p class="about__description">
+                CS & DS at University of Michigan. Aspiring Software Engineer,
+                with extensive knowledge and years of experience, working in full
+                stack development, delivering quality work.
+            </p>
+
+            <div class="about__info">
+                <div>
+                    <span class="about__info-title">03+</span>
+                    <span class="about__info-name"
+                        >Years <br />
+                        CS experience</span
+                    >
+                </div>
+
+                <div>
+                    <span class="about__info-title">50+</span>
+                    <span class="about__info-name"
+                        >Completed <br />
+                        projects</span
+                    >
+                </div>
+
+                <div>
+                    <span class="about__info-title">03+</span>
+                    <span class="about__info-name"
+                        >Internship <br />
+                        Experience</span
+                    >
+                </div>
+            </div>
+
+            <div class="about__buttons">
+                <!--==================== Change your CV ====================-->
+                <a
+                    download=""
+                    href="assets/pdf/Blaire_Xinyu_Pang_Resume.pdf"
+                    class="button button--flex"
+                    target="_blank">
+                    Download CV <i class="uil uil-download-alt button__icon"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock about %} 

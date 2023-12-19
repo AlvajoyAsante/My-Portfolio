@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+
+{% block page_content %}
+
+<!-- Load Static Data -->
+{% load static %}
+
+{% with UsersFirstName=Firstname UsersLastName=Lastname UsersFullName=Fullname UsersPhoneNumber=Phonenumber UsersEmail=Email UsersLocation=Location UsersLinkedin=LinkedIn UsersGithub=Github %}
+<!--==================== NAV ====================-->
+{% include './header.html' %}
+
+<!--==================== MAIN ====================-->
+<main class="main">
+	<!--==================== MAIN INFO ====================-->
+	{% include './main_info.html' %}
+
+	<!--==================== ABOUT ====================-->
+	{% include './about.html' %}
+
+	<!--==================== QUALIFICATION ====================-->
+	{% include './qualification.html' %}
+
+	<!--==================== SKILLS ====================-->
+	{% include './skills.html' %}
+
+	<!--==================== SERVICES ====================-->
+	{% include './services.html' %}
+
+	<!--==================== PORTFOLIO ====================-->
+	{% include './portfolio.html' %}
+
+	<!--==================== CONTACT ME ====================-->
+	{% include './contact.html' %}
+</main>
+
+<!--==================== FOOTER ====================-->
+{% include './footer.html' %}
+
+{% endwith %}
+
+<!--========== SCROLL TOP ==========-->
+<a href="#" class="scrollup" id="scroll-top">
+	<i class="uil uil-arrow-up scrollup__icon"></i>
+</a>
+
+<!--==================== SWIPER JS ====================-->
+<script src="{% static 'js/swiper-bundle.min.js' %}"></script>
+
+<!--==================== MAIN JS ====================-->
+<script src="{% static 'js/main.js' %}"></script>
+
+{% endblock page_content %}
