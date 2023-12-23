@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.http import HttpResponse
+
 
 # Create your views here.
 def home(request):
@@ -16,4 +18,5 @@ def home(request):
         'Sitename': 'Alvajoy Asante',
     }
 
-    return render(request, "pages/home.html", context)
+    return HttpResponse(render(request, "pages/home.html", context))
+    # return HttpResponse("Hello Viewers! We are testing how traffic is split")
