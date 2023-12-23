@@ -1,8 +1,25 @@
-FROM python:3.9-alpine
-ENV  PTHONBUFFERED 1
+FROM python:3.9-slim
 
-WORKDIR /app
-COPY requirements.txt .
-RUN pip install -r requirements.txt
-COPY . . 
-CMD python manage.py runserver 0.0.0.0:8000
+# Removes output stream buffering, allowing for more efficient logging
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+ENV LANG C.UTF-8
+ENV LC_ALL C.UTF-8
+
+RUN mkdir /opt/web_app
+
+ENV PROJECT_DIR /opt/web_app
+
+WORKDIR ${PROJECT_DIR}
+
+COPY Pipfile Pipfile.lock ${PROJECT_DIR}
+
+RUN python -m pip install --upgrade pip \
+    pipe install pipenv \
+    pipenv install
+
+COPY . ${PROJECT_DIR}
+
+EXPOSE 8080
+# Run the application
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8080"]
