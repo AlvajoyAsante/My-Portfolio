@@ -9,7 +9,7 @@
         <div class="footer__container container grid">
             <div>
                 <h1 class="footer__title">{{UsersFirstName}}</h1>
-                <span class="footer__subtitle">Full Stack developer</span>
+                <span class="footer__subtitle">{{UsersOccupation}}</span>
             </div>
 
             <ul class="footer__links">
@@ -40,7 +40,7 @@
 							class="footer__social">
 							<i class="uil uil-twitter-alt"></i>
 						</a> -->
-                <a href="https://www.linkedin.com/in/xinyupang/" target="_blank" class="footer__social">
+                <a href="{{UsersLinkedIn}}" target="_blank" class="footer__social">
                     <i class="uil uil-linkedin-alt"></i>
                 </a>
 
@@ -48,14 +48,14 @@
                     <i class="uil uil-dribbble"></i>
                 </a> -->
 
-                <a href="https://github.com/XinyuP" target="_blank" class="footer__social">
+                <a href="{{UsersGithub}}" target="_blank" class="footer__social">
                     <i class="uil uil-github-alt"></i>
                 </a>
 
             </div>
         </div>
 
-        <p class="footer__copy">&#169; {{UsersFirstName|lower }}.com. All right reserved</p>
+        <p class="footer__copy">&#169; {{UsersSiteName}}. All right reserved</p>
     </div>
 </footer>
 

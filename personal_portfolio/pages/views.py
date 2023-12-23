@@ -6,14 +6,14 @@ def home(request):
         'Firstname': 'Alvajoy',
         'Lastname': 'Asante',
         'Fullname': 'Alvajoy Asante',
-        'Phonenumber': '704-733-7352',
+        'Phonenumber': '(980) 288-4855',
         'Email': 'aasante@charlotte.edu',
         'Location': 'University of Charlotte, Charlotte, NC',
         'Sitename': 'mywebsite.com',
-        'Occupation': 'Software Engineer',
-        'LinkedIn': '',
-        'Github': '',
-        # 'Github': '',
+        'Occupation': 'Aspiring Software Engineer',
+        'LinkedIn': 'https://www.linkedin.com/in/alvajoy-asante/',
+        'Github': 'https://github.com/Overload02',
+        'Sitename': 'Alvajoy Asante',
     }
 
     return render(request, "pages/home.html", context)

@@ -6,7 +6,7 @@
 <!-- Load Static Data -->
 {% load static %}
 
-{% with UsersFirstName=Firstname UsersLastName=Lastname UsersFullName=Fullname UsersPhoneNumber=Phonenumber UsersEmail=Email UsersLocation=Location UsersLinkedin=LinkedIn UsersGithub=Github %}
+{% with UsersFirstName=Firstname UsersLastName=Lastname UsersFullName=Fullname UsersLinkedIn=LinkedIn UsersGithub=Github UsersOccupation=Occupation %}
 <!--==================== NAV ====================-->
 {% include './header.html' %}
 
@@ -31,11 +31,11 @@
 	{% include './portfolio.html' %}
 
 	<!--==================== CONTACT ME ====================-->
-	{% include './contact.html' %}
+	{% include './contact.html' with UsersPhoneNumber=Phonenumber UsersEmail=Email UsersLocation=Location %}
 </main>
 
 <!--==================== FOOTER ====================-->
-{% include './footer.html' %}
+{% include './footer.html' with UsersSiteName=Sitename %}
 
 {% endwith %}
 
