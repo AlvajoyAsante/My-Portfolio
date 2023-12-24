@@ -27,4 +27,4 @@ jobs:
         pip install -r personal_portfolio/requirements.txt
     - name: Run Server
       run: |
-        python personal_portfolio/manage.py runserver
+        python personal_portfolio/manage.py test
