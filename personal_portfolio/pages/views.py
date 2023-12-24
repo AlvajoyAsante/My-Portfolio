@@ -19,4 +19,3 @@ def home(request):
     }
 
     return HttpResponse(render(request, "pages/home.html", context))
-    # return HttpResponse("Hello Viewers! We are testing how traffic is split")
