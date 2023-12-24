@@ -13,7 +13,7 @@ _My portfolio website built using Django and hosted on Google Cloud Services (GC
 * Skills and experience section
 * Contact form or email address
 
-# Deployment on GCP
+## Deployment on GCP
 * Used Google App Engine or Google Compute Engine
 * Configuring a CI/CD pipeline for automated deployments
 
