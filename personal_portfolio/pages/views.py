@@ -10,14 +10,59 @@ from projects.models import Project
 from videos.models import Video
 from .models import PersonalInfo
 import json
+import requests
+import xml.etree.ElementTree as ET
+import os
+
+def get_latest_youtube_videos(channel_id):
+    if not channel_id:
+        return []
+    
+    rss_url = f"https://www.youtube.com/feeds/videos.xml?channel_id={channel_id}"
+    try:
+        response = requests.get(rss_url, timeout=5)
+        if response.status_code == 200:
+            root = ET.fromstring(response.content)
+            ns = {'yt': 'http://www.youtube.com/xml/schemas/2015', 'media': 'http://search.yahoo.com/mrss/', 'atom': 'http://www.w3.org/2005/Atom'}
+            videos = []
+            for entry in root.findall('atom:entry', ns):
+                video_id_elem = entry.find('yt:videoId', ns)
+                title_elem = entry.find('atom:title', ns)
+                media_group = entry.find('media:group', ns)
+                description_elem = media_group.find('media:description', ns) if media_group is not None else None
+                
+                if video_id_elem is not None and title_elem is not None:
+                    videos.append({
+                        'youtube_id': video_id_elem.text,
+                        'title': title_elem.text,
+                        'description': description_elem.text if description_elem is not None else "",
+                    })
+                
+                if len(videos) >= 1: # Limit to 6 videos
+                    break
+            return videos
+    except Exception as e:
+        print(f"Error fetching YouTube videos: {e}")
+        return []
+    return []
 
 # Create your views here.
 def home(request):
     qualifications = Qualification.objects.all()
     skill_categories = SkillCategory.objects.prefetch_related('skills').all()
     projects = Project.objects.all()
-    videos = Video.objects.filter(is_active=True)
     personal_info = PersonalInfo.objects.first()
+    
+    # Try to fetch from YouTube RSS first
+    videos = []
+    channel_id = personal_info.youtube_channel_id
+            
+    if channel_id:
+        videos = get_latest_youtube_videos(channel_id)
+        
+    # Fallback to database if no videos found from RSS
+    if not videos:
+        videos = Video.objects.filter(is_active=True)
     
     context = {
         'personal_info': personal_info,
