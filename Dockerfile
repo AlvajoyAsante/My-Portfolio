@@ -24,6 +24,13 @@ COPY personal_portfolio/ .
 # Collect static files
 RUN python manage.py collectstatic --noinput
 
+# Run migrations and populate data
+RUN python manage.py migrate && \
+    python populate_personal_info.py && \
+    python populate_skills.py && \
+    python populate_qualifications.py && \
+    python populate_projects.py
+
 # Expose port
 EXPOSE 8080
 

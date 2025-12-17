@@ -1,2 +1,4 @@
 django>=3.2.19
 gunicorn>20.1.0
+whitenoise
+Pillow

@@ -203,7 +203,7 @@ img {
 .nav_icon {
   width: 55px;
   height: 55px;
-  filter: hue-rotate(130deg);
+  /* filter: hue-rotate(130deg); */
 }
 
 
@@ -501,8 +501,11 @@ img {
 }
 
 .skills__list {
-  row-gap: 1.5rem;
-  padding-left: 2.7rem;
+  display: flex;
+  justify-content: center;
+  column-gap: 2.5rem;
+  row-gap: 2rem;
+  flex-wrap: wrap;
 }
 
 .skills__titles {
@@ -529,6 +532,17 @@ img {
 .skills__percentage {
   display: block;
   background-color: var(--first-color);
+}
+
+.skills__data {
+  display: flex;
+  column-gap: .5rem;
+  align-items: center;
+}
+
+.skills__name-icon {
+  font-size: 1rem;
+  color: var(--first-color);
 }
 
 .skills__py {
@@ -1444,29 +1458,14 @@ img {
 
 }
 
-
-
-
-
-
-/* .card {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
-  width: 40%;
-  border-radius: 5px;
-
-} */
-
 /* Style the counter cards */
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 16px;
   text-align: center;
-  /* background-color: #f1f1f1; */
   margin-top: 20px;
-  height: 650px;
-  overflow-y: "hidden"
-
+  height: 440px;
+  padding-bottom: 20px;
 }
 
 .card img {
@@ -1489,10 +1488,14 @@ img {
 }
 
 .card-container {
-  padding: 2px 16px;
+  /* padding: 2px 16px; */
   height: 400px;
-  text-overflow: ellipsis;
-  overflow: scroll;
+  /* text-overflow: ellipsis; */
+  overflow: hidden;
+}
+
+.card-container::-webkit-scrollbar {
+  display: none;
 }
 
 * {
@@ -1520,7 +1523,7 @@ img {
 
 /* Remove extra left and right margins, due to padding */
 .row {
-  margin: 20 40px;
+  margin: 0 -10px;
 }
 
 /* Clear floats after the columns */

@@ -1,4 +1,4 @@
-# Django Portfolio Website on Google Cloud Services
+# My Portfolio Website
 _My portfolio website built using Django and hosted on Google Cloud Services (GCP)._
 
 
@@ -60,26 +60,6 @@ _My portfolio website built using Django and hosted on Google Cloud Services (GC
    The website will be available at `http://127.0.0.1:8000/`
 
 ## Deployment on GCP
-
-### Using Google App Engine
-1. Install the Google Cloud SDK
-2. Authenticate with GCP:
-   ```bash
-   gcloud auth login
-   gcloud config set project YOUR_PROJECT_ID
-   ```
-
-3. Deploy the application:
-   ```bash
-   gcloud app deploy
-   ```
-
-4. View your deployed application:
-   ```bash
-   gcloud app browse
-   ```
-
-### Using Cloud Run
 1. Ensure you have a Dockerfile in the root directory of your project
 2. Cloud Build will automatically trigger on pushes to the main branch
 3. The build process:

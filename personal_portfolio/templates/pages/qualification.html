@@ -33,465 +33,203 @@
 
             <!--=============== QUALIFICATION CONTENT 1 (WORK) ===============-->
             <div class="qualification__content qualification__active" data-content id="work">
-
-
-                <!--=============== QUALIFICATION 0 ===============-->
-                <div class="qualification__data">
-                    <div>
-                        <h3 class="qualification__title">
-                            CS Research Mentorship Program Scholar</h3>
-                        <span class="qualification__subtitle">Google</span>
-                        <div class="qualification__calendar">
-                            <i class="uil uil-calendar-alt"></i>
-                            Jun 2017 - present
+                {% for qualification in qualifications %}
+                    {% if qualification.category == 'work' %}
+                        <div class="qualification__data">
+                            {% if forloop.counter|divisibleby:2 %}
+                                <div></div>
+                                <div class="qualification__time">
+                                    <span class="qualification__rounder"></span>
+                                    <span class="qualification__line"></span>
+                                </div>
+                                <div>
+                                    <h3 class="qualification__title">
+                                        {% if qualification.link %}
+                                            <a href="{{ qualification.link }}">{{ qualification.title }}</a>
+                                        {% else %}
+                                            {{ qualification.title }}
+                                        {% endif %}
+                                    </h3>
+                                    <span class="qualification__subtitle">{{ qualification.subtitle }}</span>
+                                    <div class="qualification__calendar">
+                                        <i class="uil uil-calendar-alt"></i>
+                                        {{ qualification.date_range }}
+                                    </div>
+                                </div>
+                            {% else %}
+                                <div>
+                                    <h3 class="qualification__title">
+                                        {% if qualification.link %}
+                                            <a href="{{ qualification.link }}">{{ qualification.title }}</a>
+                                        {% else %}
+                                            {{ qualification.title }}
+                                        {% endif %}
+                                    </h3>
+                                    <span class="qualification__subtitle">{{ qualification.subtitle }}</span>
+                                    <div class="qualification__calendar">
+                                        <i class="uil uil-calendar-alt"></i>
+                                        {{ qualification.date_range }}
+                                    </div>
+                                </div>
+                                <div class="qualification__time">
+                                    <span class="qualification__rounder"></span>
+                                    <span class="qualification__line"></span>
+                                </div>
+                            {% endif %}
                         </div>
-                    </div>
-
-                    <!-- <div></div> -->
-                    <div class="qualification__time">
-                        <span class="qualification__rounder"></span>
-                        <span class="qualification__line"></span>
-                    </div>
-                </div>
-
-                <!--=============== QUALIFICATION 1 ===============-->
-                <div class="qualification__data">
-                    <div></div>
-
-                    <div>
-                        <span class="qualification__rounder"></span>
-                        <span class="qualification__line"></span>
-                    </div>
-
-                    <div>
-                        <h3 class="qualification__title">Undergraduate Research Assistant</h3>
-                        <span class="qualification__subtitle">Howard University</span>
-                        <div class="qualification__calendar">
-                            <i class="uil uil-calendar-alt"></i>
-                            Jun 2023 – Present
-                        </div>
-                    </div>
-                </div>
-
-                <!--=============== QUALIFICATION 2 ===============-->
-                <div class="qualification__data">
-                    <div>
-                        <h3 class="qualification__title">Career Explore Intern</h3>
-                        <span class="qualification__subtitle">Road to Hire</span>
-                        <div class="qualification__calendar">
-                            <i class="uil uil-calendar-alt"></i>
-                            Jun 2023 - Jun 2023
-                        </div>
-                    </div>
-
-                    <div>
-                        <span class="qualification__rounder"></span>
-                        <span class="qualification__line"></span>
-                    </div>
-                </div>
-
-                <!--=============== QUALIFICATION 3 ===============-->
-                <div class="qualification__data">
-                    <div></div>
-
-                    <div>
-                        <span class="qualification__rounder"></span>
-                        <span class="qualification__line"></span>
-                    </div>
-
-                    <div>
-                        <h3 class="qualification__title">CCI Instructional Assistant</h3>
-                        <span class="qualification__subtitle">University of North Carolina at Charlotte</span>
-                        <div class="qualification__calendar">
-                            <i class="uil uil-calendar-alt"></i>
-                            Jan 2023 – Present
-                        </div>
-                    </div>
-                </div>
-
-
-                <!--=============== QUALIFICATION 4 ===============-->
-                <div class="qualification__data">
-
-                    <div>
-                        <h3 class="qualification__title">Summer Analyst Intern</h3>
-                        <span class="qualification__subtitle">Eastdil Secured</span>
-                        <div class="qualification__calendar">
-                            <i class="uil uil-calendar-alt"></i>
-                            June 2022 – August 2022
-                        </div>
-                    </div>
-
-                    <!-- <div></div> -->
-
-                    <div class="qualification__time">
-                        <span class="qualification__rounder"></span>
-                        <span class="qualification__line"></span>
-                    </div>
-
-
-                </div>
-
-                <!--=============== QUALIFICATION 5 ===============-->
-                <div class="qualification__data">
-                    <div></div>
-
-                    <div class="qualification__time">
-                        <span class="qualification__rounder"></span>
-                        <span class="qualification__line"></span>
-                    </div>
-
-                    <div>
-                        <h3 class="qualification__title">Community Software Engineer</h3>
-                        <span class="qualification__subtitle">Cemetech.net</span>
-                        <div class="qualification__calendar">
-                            <i class="uil uil-calendar-alt"></i>
-                            Jun 2017 - present
-                        </div>
-                    </div>
-                </div>
+                    {% endif %}
+                {% endfor %}
             </div>
 
 
             <!--=============== QUALIFICATION CONTENT 2 (EDUCATION) ===============-->
             <div class="qualification__content" data-content id="education">
-                <!--=============== QUALIFICATION 1 ===============-->
-                <div class="qualification__data">
-                    <div>
-                        <h3 class="qualification__title">B.Sc Computer Science</h3>
-                        <span class="qualification__subtitle">University of North Carolina at Charlotte</span>
-                        <div class="qualification__calendar">
-                            <i class="uil uil-calendar-alt"></i>
-                            2022 - Present
+                {% for qualification in qualifications %}
+                    {% if qualification.category == 'education' %}
+                        <div class="qualification__data">
+                            {% if forloop.counter|divisibleby:2 %}
+                                <div></div>
+                                <div class="qualification__time">
+                                    <span class="qualification__rounder"></span>
+                                    <span class="qualification__line"></span>
+                                </div>
+                                <div>
+                                    <h3 class="qualification__title">
+                                        {% if qualification.link %}
+                                            <a href="{{ qualification.link }}">{{ qualification.title }}</a>
+                                        {% else %}
+                                            {{ qualification.title }}
+                                        {% endif %}
+                                    </h3>
+                                    <span class="qualification__subtitle">{{ qualification.subtitle }}</span>
+                                    <div class="qualification__calendar">
+                                        <i class="uil uil-calendar-alt"></i>
+                                        {{ qualification.date_range }}
+                                    </div>
+                                </div>
+                            {% else %}
+                                <div>
+                                    <h3 class="qualification__title">
+                                        {% if qualification.link %}
+                                            <a href="{{ qualification.link }}">{{ qualification.title }}</a>
+                                        {% else %}
+                                            {{ qualification.title }}
+                                        {% endif %}
+                                    </h3>
+                                    <span class="qualification__subtitle">{{ qualification.subtitle }}</span>
+                                    <div class="qualification__calendar">
+                                        <i class="uil uil-calendar-alt"></i>
+                                        {{ qualification.date_range }}
+                                    </div>
+                                </div>
+                                <div class="qualification__time">
+                                    <span class="qualification__rounder"></span>
+                                    <span class="qualification__line"></span>
+                                </div>
+                            {% endif %}
                         </div>
-                    </div>
-
-                    <div>
-                        <span class="qualification__rounder"></span>
-                        <span class="qualification__line"></span>
-                    </div>
-                </div>
-
-                <!--=============== QUALIFICATION 2 ===============-->
-                <div class="qualification__data">
-                    <div></div>
-                    <div>
-                        <span class="qualification__rounder"></span>
-                        <span class="qualification__line"></span>
-                    </div>
-                    <div>
-                        <h3 class="qualification__title">M.S Computer Science</h3>
-                        <span class="qualification__subtitle">University of North Carolina at Charlotte</span>
-                        <div class="qualification__calendar">
-                            <i class="uil uil-calendar-alt"></i>
-                            2024 - Present
-                        </div>
-                    </div>
-                </div>
+                    {% endif %}
+                {% endfor %}
             </div>
 
             <!--=============== QUALIFICATION CONTENT 3 ===============-->
             <div class="qualification__content" data-content id="school">
-
-                <!--=============== QUALIFICATION 2 ===============-->
-                <div class="qualification__data">
-                    <div></div>
-
-                    <div class="qualification__time">
-                        <span class="qualification__rounder"></span>
-                        <span class="qualification__line"></span>
-                    </div>
-
-                    <div>
-                        <h3 class="qualification__title">Active Member</h3>
-                        <span class="qualification__subtitle"><a
-                                href="https://ninerengage.charlotte.edu/organization/national-society-of-black-engineers">National
-                                Society of Black Engineers</a></span>
-                        <div class="qualification__calendar">
-                            <i class="uil uil-calendar-alt"></i>
-                            Jan 2024 - present
+                {% for qualification in qualifications %}
+                    {% if qualification.category == 'school' %}
+                        <div class="qualification__data">
+                            {% if forloop.counter|divisibleby:2 %}
+                                <div></div>
+                                <div class="qualification__time">
+                                    <span class="qualification__rounder"></span>
+                                    <span class="qualification__line"></span>
+                                </div>
+                                <div>
+                                    <h3 class="qualification__title">
+                                        {% if qualification.link %}
+                                            <a href="{{ qualification.link }}">{{ qualification.title }}</a>
+                                        {% else %}
+                                            {{ qualification.title }}
+                                        {% endif %}
+                                    </h3>
+                                    <span class="qualification__subtitle">{{ qualification.subtitle }}</span>
+                                    <div class="qualification__calendar">
+                                        <i class="uil uil-calendar-alt"></i>
+                                        {{ qualification.date_range }}
+                                    </div>
+                                </div>
+                            {% else %}
+                                <div>
+                                    <h3 class="qualification__title">
+                                        {% if qualification.link %}
+                                            <a href="{{ qualification.link }}">{{ qualification.title }}</a>
+                                        {% else %}
+                                            {{ qualification.title }}
+                                        {% endif %}
+                                    </h3>
+                                    <span class="qualification__subtitle">{{ qualification.subtitle }}</span>
+                                    <div class="qualification__calendar">
+                                        <i class="uil uil-calendar-alt"></i>
+                                        {{ qualification.date_range }}
+                                    </div>
+                                </div>
+                                <div class="qualification__time">
+                                    <span class="qualification__rounder"></span>
+                                    <span class="qualification__line"></span>
+                                </div>
+                            {% endif %}
                         </div>
-                    </div>
-                </div>
-
-
-                <!--=============== QUALIFICATION -1 ===============-->
-                <div class="qualification__data">
-                    <div>
-                        <h3 class="qualification__title">Active Member</h3>
-                        <span class="qualification__subtitle"><a
-                                href="https://ninerengage.charlotte.edu/organization/acm">Association for Computing
-                                Machinery</a></span>
-                        <br />
-                        <div class="qualification__calendar">
-                            <i class="uil uil-calendar-alt"></i>
-                            Aug 2023 - present
-                        </div>
-                    </div>
-
-
-                    <div>
-                        <span class="qualification__rounder"></span>
-                        <span class="qualification__line"></span>
-                    </div>
-                </div>
-
-                <!--=============== QUALIFICATION 1 ===============-->
-                <div class="qualification__data">
-
-                    <div></div>
-                    <div>
-                        <span class="qualification__rounder"></span>
-                        <span class="qualification__line"></span>
-                    </div>
-
-                    <div>
-                        <h3 class="qualification__title">Capital One Hackathon</h3>
-                        <span class="qualification__subtitle">Capital One</span>
-                        <div class="qualification__calendar">
-                            <i class="uil uil-calendar-alt"></i>
-                            Jul 2023 - Jul 2023
-                        </div>
-                    </div>
-
-                </div>
-
-                <!--=============== QUALIFICATION 0 ===============-->
-                <div class="qualification__data">
-                    <div>
-                        <h3 class="qualification__title">Freshmen Representative</h3>
-                        <span class="qualification__subtitle"><a
-                                href="https://ninerengage.charlotte.edu/organization/blacks-in-technology">Blacks in
-                                Technology</a></span><br />
-                        <div class="qualification__calendar">
-                            <i class="uil uil-calendar-alt"></i>
-                            Jan 2023 - present
-                        </div>
-                    </div>
-
-                    <div class="qualification__time">
-                        <span class="qualification__rounder"></span>
-                        <span class="qualification__line"></span>
-                    </div>
-
-
-
-                </div>
-
-                <!--=============== QUALIFICATION 1 ===============-->
-                <div class="qualification__data">
-                    <div></div>
-                    <div>
-                        <span class="qualification__rounder"></span>
-                        <span class="qualification__line"></span>
-                    </div>
-                    <div>
-                        <h3 class="qualification__title">Research Ambassador</h3>
-                        <span class="qualification__subtitle">Black Research Support Network</span>
-                        <div class="qualification__calendar">
-                            <i class="uil uil-calendar-alt"></i>
-                            Jan 2023 - present
-                        </div>
-                    </div>
-
-
-                </div>
-
-                <!--=============== QUALIFICATION 0 ===============-->
-                <div class="qualification__data">
-                    <div>
-                        <h3 class="qualification__title">LPL Finical Hackathon</h3>
-                        <span class="qualification__subtitle">LPL Finical</span><br />
-                        <div class="qualification__calendar">
-                            <i class="uil uil-calendar-alt"></i>
-                            Jan 2023 - Jan 2023
-                        </div>
-                    </div>
-
-                    <div class="qualification__time">
-                        <span class="qualification__rounder"></span>
-                        <span class="qualification__line"></span>
-                    </div>
-
-
-
-                </div>
-
-
-
+                    {% endif %}
+                {% endfor %}
             </div>
 
             <!--=============== QUALIFICATION CONTENT 4 ===============-->
             <div class="qualification__content" data-content id="certifications">
-                <div class="qualification__data">
-                    <div></div>
-                    <div class="qualification__time">
-                        <span class="qualification__rounder"></span>
-                        <span class="qualification__line"></span>
-                    </div>
-                    <div>
-                        <h3 class="qualification__title"><a href="https://www.sololearn.com/en/certificates/CC-LJZAIJMN">Javascript Intermediate</a></h3>
-                        <span class="qualification__subtitle">SoloLearn</span><br />
-                        <div class="qualification__calendar">
-                            <i class="uil uil-calendar-alt"></i>
-                            Issued May 2023
+                {% for qualification in qualifications %}
+                    {% if qualification.category == 'certifications' %}
+                        <div class="qualification__data">
+                            {% if forloop.counter|divisibleby:2 %}
+                                <div></div>
+                                <div class="qualification__time">
+                                    <span class="qualification__rounder"></span>
+                                    <span class="qualification__line"></span>
+                                </div>
+                                <div>
+                                    <h3 class="qualification__title">
+                                        {% if qualification.link %}
+                                            <a href="{{ qualification.link }}">{{ qualification.title }}</a>
+                                        {% else %}
+                                            {{ qualification.title }}
+                                        {% endif %}
+                                    </h3>
+                                    <span class="qualification__subtitle">{{ qualification.subtitle }}</span>
+                                    <div class="qualification__calendar">
+                                        <i class="uil uil-calendar-alt"></i>
+                                        {{ qualification.date_range }}
+                                    </div>
+                                </div>
+                            {% else %}
+                                <div>
+                                    <h3 class="qualification__title">
+                                        {% if qualification.link %}
+                                            <a href="{{ qualification.link }}">{{ qualification.title }}</a>
+                                        {% else %}
+                                            {{ qualification.title }}
+                                        {% endif %}
+                                    </h3>
+                                    <span class="qualification__subtitle">{{ qualification.subtitle }}</span>
+                                    <div class="qualification__calendar">
+                                        <i class="uil uil-calendar-alt"></i>
+                                        {{ qualification.date_range }}
+                                    </div>
+                                </div>
+                                <div class="qualification__time">
+                                    <span class="qualification__rounder"></span>
+                                    <span class="qualification__line"></span>
+                                </div>
+                            {% endif %}
                         </div>
-                    </div>  
-                </div>
-                
-                <div class="qualification__data">
-                    <div>
-                        <h3 class="qualification__title"><a href="https://www.sololearn.com/en/certificates/CC-OY2U39TZ">Introduction to Javascript</a></h3>
-                        <span class="qualification__subtitle">SoloLearn</span><br />
-                        <div class="qualification__calendar">
-                            <i class="uil uil-calendar-alt"></i>
-                            Issued Jun 2023
-                        </div>
-                    </div>
-
-                    <div class="qualification__time">
-                        <span class="qualification__rounder"></span>
-                        <span class="qualification__line"></span>
-                    </div>
-                </div>
-
-                <div class="qualification__data">
-                    <div></div>
-                    <div class="qualification__time">
-                        <span class="qualification__rounder"></span>
-                        <span class="qualification__line"></span>
-                    </div>
-                    <div>
-                        <h3 class="qualification__title"><a href="https://www.sololearn.com/en/certificates/CC-0MX1U6NZ">C Intermediate</a></h3>
-                        <span class="qualification__subtitle">SoloLearn</span><br />
-                        <div class="qualification__calendar">
-                            <i class="uil uil-calendar-alt"></i>
-                            Issued May 2023
-                        </div>
-                    </div>  
-                </div>
-
-                <div class="qualification__data">
-                    <div>
-                        <h3 class="qualification__title"><a href="https://www.sololearn.com/en/certificates/CC-LFZQMGWK">Introduction to C++</a></h3>
-                        <span class="qualification__subtitle">SoloLearn</span><br />
-                        <div class="qualification__calendar">
-                            <i class="uil uil-calendar-alt"></i>
-                            Issued May 2023
-                        </div>
-                    </div>
-
-                    <div class="qualification__time">
-                        <span class="qualification__rounder"></span>
-                        <span class="qualification__line"></span>
-                    </div>
-                </div>
-
-                <div class="qualification__data">
-                    <div></div>
-                    <div class="qualification__time">
-                        <span class="qualification__rounder"></span>
-                        <span class="qualification__line"></span>
-                    </div>
-                    <div>
-                        <h3 class="qualification__title"><a href="https://www.sololearn.com/en/certificates/CC-UUURMTS9">C# Intermediate</a></h3>
-                        <span class="qualification__subtitle">SoloLearn</span><br />
-                        <div class="qualification__calendar">
-                            <i class="uil uil-calendar-alt"></i>
-                            Issued Apr 2023
-                        </div>
-                    </div>  
-                </div>
-
-                <div class="qualification__data">
-                    <div>
-                        <h3 class="qualification__title"><a href="https://www.sololearn.com/en/certificates/CC-GXUJDHXA">Java Intermediate</a></h3>
-                        <span class="qualification__subtitle">SoloLearn</span><br />
-                        <div class="qualification__calendar">
-                            <i class="uil uil-calendar-alt"></i>
-                            Issued Mar 2023
-                        </div>
-                    </div>
-
-                    <div class="qualification__time">
-                        <span class="qualification__rounder"></span>
-                        <span class="qualification__line"></span>
-                    </div>
-                </div>
-
-                <div class="qualification__data">
-
-                    <div></div>
-                    <div class="qualification__time">
-                        <span class="qualification__rounder"></span>
-                        <span class="qualification__line"></span>
-                    </div>
-
-                    <div>
-                        <h3 class="qualification__title"><a href="https://www.sololearn.com/en/certificates/CC-OHUSDH9C"> Python Intermediate</a></h3>
-                        <span class="qualification__subtitle">SoloLearn</span><br />
-                        <div class="qualification__calendar">
-                            <i class="uil uil-calendar-alt"></i>
-                            Issued Feb 2023
-                        </div>
-                    </div>
-                </div>
-
-                <div class="qualification__data">
-                    <div>
-                        <h3 class="qualification__title">I<a href="https://www.sololearn.com/en/certificates/CC-1QMLGVX2">Introduction to Python</a></h3>
-                        <span class="qualification__subtitle">SoloLearn</span><br />
-                        <div class="qualification__calendar">
-                            <i class="uil uil-calendar-alt"></i>
-                            Issued Dec 2023
-                        </div>
-                    </div>
-
-                    <div class="qualification__time">
-                        <span class="qualification__rounder"></span>
-                        <span class="qualification__line"></span>
-                    </div>
-                </div>
-
-                <!--=============== QUALIFICATION 1 ===============-->
-                <div class="qualification__data">
-
-                    <div></div>
-                    <div class="qualification__time">
-                        <span class="qualification__rounder"></span>
-                        <span class="qualification__line"></span>
-                    </div>
-
-                    <div>
-                        <h3 class="qualification__title"><a href="https://www.sololearn.com/en/certificates/CC-OK3AXVGN">Introduction to SQL</a></h3>
-                        <span class="qualification__subtitle">SoloLearn</span><br />
-                        <div class="qualification__calendar">
-                            <i class="uil uil-calendar-alt"></i>
-                            Issued Jan 2023
-                        </div>
-                    </div>
-                </div>
-
-
-
-                <!--=============== QUALIFICATION 0 ===============-->
-                <div class="qualification__data">
-                    <div>
-                        <h3 class="qualification__title"><a href="https://www.sololearn.com/en/certificates/CC-SHM7XMLC">Introduction to C#</a></h3>
-                        <span class="qualification__subtitle">SoloLearn</span><br />
-                        <div class="qualification__calendar">
-                            <i class="uil uil-calendar-alt"></i>
-                            Issued Dec 2022
-                        </div>
-                    </div>
-
-                    <div class="qualification__time">
-                        <span class="qualification__rounder"></span>
-                        <span class="qualification__line"></span>
-                    </div>
-                </div>
-
-
+                    {% endif %}
+                {% endfor %}
             </div>
         </div>
     </div>

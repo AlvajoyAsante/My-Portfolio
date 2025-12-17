@@ -7,199 +7,32 @@
     <div class="spacer-20"></div>
     <span class="section__subtitle">My projects</span>
 
-    <div class="row">
-        <div class="column">
-            <div class="card">
-                <img src="https://storage.googleapis.com/my-portfolio-408919_cloudbuild/static/img/projects/duckhunt.png" alt="DUCKHUNT" style="width:100%">
-                <div class="card-container">
-                    <h4><b>DUCK HUNT</b></h4>
+    <div class="container">
+        <div class="row">
+            {% for project in projects %}
+            <div class="column">
+                <div class="card">
+                    <img src="{% if project.image %}{{ project.image.url }}{% else %}{{ project.image_url }}{% endif %}"
+                        alt="{{ project.title }}" style="width:100%">
+                    <h4><b>{{ project.title }}</b></h4>
+                    <p style="font-size: var(--smaller-font-size); color: var(--text-color-light); margin-bottom: 0.5rem;">
+                        {% if project.start_date %}{{ project.start_date|date:"M Y" }} - {% endif %}{% if project.end_date %}{{ project.end_date|date:"M Y" }}{% else %}Present{% endif %}
+                    </p>
                     <div class="links">
-                        <a href="https://github.com/Overload02/DuckHunt" class="button" target="_blank">GitHub</a>
+                        {% if project.github_link %}
+                        <a href="{{ project.github_link }}" class="button" target="_blank">GitHub</a>
+                        {% endif %}
+                        {% if project.demo_link %}
+                        <a href="{{ project.demo_link }}" class="button" target="_blank">Demo</a>
+                        {% endif %}
                     </div>
-
                     <p>
-                        • Duck Hunt CE is a clone of the classic NES Duck Hunt for the TI-84 Plus CE calculator.<br />
-                        • The ducks fly in different patterns, and the player must shoot them before they fly out of the
-                        screen.<br />
-                        • The player can earn points for shooting ducks, and the game ends when all of the ducks have
-                        been shot.<br />
-                        • Duck Hunt CE is a fun and challenging game that can be enjoyed by players of all ages.
+                        {{ project.description }}
                     </p>
                 </div>
             </div>
+            {% endfor %}
         </div>
-
-        <div class="column">
-            <div class="card">
-                <img src="https://storage.googleapis.com/my-portfolio-408919_cloudbuild/static/img/projects/gfx3.png" alt="gfx3" style="width:100%">
-                <div class="card-container">
-                    <h4><b>GFX3</b></h4>
-                    <div class="links">
-                        <a href="https://github.com/Overload02/GFX3" class="button" target="_blank">GitHub</a>
-                    </div>
-                    <p>
-                        • GFX3 is a sprite stacking library for the TI-84 Plus CE toolchain.<br />
-                        • It makes it easy to create and handle stacked sprites in CE Toolchain projects.<br />
-                        • Developers can layer multiple sprites on top of each other, change their location, size, and
-                        rotation, and even make them translucent.<br />
-                        • GFX3 can be used to create more complex and dynamic visuals in projects.<br />
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="column">
-            <div class="card">
-                <img src="https://storage.googleapis.com/my-portfolio-408919_cloudbuild/static/img/projects/kira.png" alt="kira" style="width:100%">
-                <div class="card-container">
-                    <h4><b>KIRA</b></h4>
-                    <div class="links">
-                        <!-- <a href="" class="button" target="_blank">GitHub</a> -->
-                    </div>
-                    <p>
-                        • Kira is a personal AI advisor that helps minority communities build financial literacy.<br />
-                        • Kira was awarded first place in the Capital One Black and Hispanic Hackathon.<br />
-                        • It is a web application that uses React, Firebase, and the D-ID API to provide users with
-                        personalized financial advice.<br />
-                        • It is a powerful tool that can help minority communities learn about financial concepts, make
-                        informed financial decisions, and build wealth.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="column">
-            <div class="card">
-                <img src="https://storage.googleapis.com/my-portfolio-408919_cloudbuild/static/img/projects/reliq.jpg" alt="ReliQ" style="width:100%">
-                <div class="card-container">
-                    <h4><b>ReliQ</b></h4>
-                    <div class="links">
-                        <!-- <a href="" class="button" target="_blank">GitHub</a> -->
-                    </div>
-                    <p>
-                        • ReliQ is an app that encourages students to turn in their homework by rewarding them with
-                        virtual currency.<br />
-                        • The currency can be redeemed for rewards or prizes in an in-app store.<br />
-                        • The app is user-friendly and easy to navigate.<br />
-                        • It provides a fun and engaging way for students to stay on top of their homework.<br />
-                        • It helps students manage their assignments, set reminders, and track their progress.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="column">
-            <div class="card">
-                <img src="https://storage.googleapis.com/my-portfolio-408919_cloudbuild/static/img/projects/scratch_ce.png" alt="SCRATCH" style="width:100%">
-                <div class="card-container">
-                    <h4><b>Scratch CE</b></h4>
-                    <div class="links">
-                        <a href="https://github.com/Overload02/Scratch-CE" class="button" target="_blank">GitHub</a>
-                    </div>
-                    <p>
-                        • Scratch CE is a block coding language made on the TI-84 PLUS CE.<br />
-                        • Enjoy a familiar drag-and-drop coding experience with a streamlined interface designed for
-                        your calculator.<br />
-                        • Create interactive stories, animations, and games using six essential blocks.<br />
-                        • Share your creations with friends easily and showcase your coding skills, even on the
-                        go!<br />
-                        • Ideal for beginners, Scratch CE offers a fun and accessible way to learn coding basics right
-                        on your calculator
-
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="column">
-            <div class="card">
-                <img src="https://storage.googleapis.com/my-portfolio-408919_cloudbuild/static/img/projects/oxygen.png" alt="Oxygen" style="width:100%">
-                <div class="card-container">
-                    <h4><b>Oxygen</b></h4>
-                    <div class="links">
-                        <a href="https://github.com/Overload02/Oxygen" class="button" target="_blank">GitHub</a>
-                    </div>
-                    <p>
-                        • Oxygen is a graphical user interface (GUI) framework for the TI-84 Plus CE calculator.<br />
-                        • It allows developers to create and customize GUIs for their programs, making them more
-                        user-friendly and visually appealing.<br />
-                        • The framework provides a set of tools and APIs for creating widgets such as buttons, text
-                        boxes, and drop-down menus.<br />
-                        • It also includes features such as event handling and responsive layout.<br />
-                        • Oxygen is optimized to work within the memory and processing constraints of the calculator
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="column">
-            <div class="card">
-                <img src="https://storage.googleapis.com/my-portfolio-408919_cloudbuild/static/img/projects/vtf.png" alt="VFX" style="width:100%">
-                <div class="card-container">
-                    <h4><b>
-                            Virtual Trading Floor (VFX)</b></h4>
-                    <div class="links">
-                        <!-- <a href="" class="button" target="_blank">GitHub</a> -->
-                    </div>
-                    <p>
-                        • Virtual Trading Floor is a program that simulates a real-world trading floor.<br />
-                        • Virtual Trading Floor was awarded the Most Innovative award at the LPL Hackathon.<br />
-                        • It allows traders to trade stocks, commodities, and other financial instruments in a virtual
-                        environment.<br />
-                        • The program uses the latest technologies, such as virtual reality and augmented reality, to
-                        provide traders with a realistic and immersive experience.<br />
-                        • It is a powerful tool that can be used to train traders, test new trading strategies, and
-                        simulate market conditions.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="column">
-            <div class="card">
-                <img src="https://storage.googleapis.com/my-portfolio-408919_cloudbuild/static/img/projects/xenon.gif" alt="Xenon" style="width:100%">
-                <div class="card-container">
-                    <h4><b>Xenon</b></h4>
-                    <div class="links">
-                        <a href="https://github.com/Overload02/Xenon" class="button" target="_blank">GitHub</a>
-                    </div>
-                    <p>
-                        • Xenon is a command line and graphical user interface (GUI) shell for the TI-84 Plus CE
-                        calculator.<br />
-                        • It provides a user-friendly interface for interacting with the calculator's operating
-                        system.<br />
-                        • With Xenon, users can navigate the file system, run programs, and perform system tasks.<br />
-                        • The shell includes features such as command history, tab-completion, and support for piping
-                        and redirecting input and output.<br />
-                        • Additionally, Xenon has a set of built-in utilities that enhance the functionality of the
-                        calculator by providing additional tools and features.<br />
-                        • The shell is optimized to work within the memory and processing constraints of the calculator.
-                </div>
-            </div>
-        </div>
-
-        <div class="column">
-            <div class="card">
-                <img src="https://storage.googleapis.com/my-portfolio-408919_cloudbuild/static/img/projects/neural.png" alt="Neural" style="width:100%">
-                <div class="card-container">
-                    <h4><b>
-                            Neural</b></h4>
-                    <div class="links">
-                        <a href="https://github.com/Overload02/Neural" class="button" target="_blank">GitHub</a>
-                    </div>
-                    <p>
-                        • Neural is a coevolutionary network for the CE calculator that detects numbers using the MNIST
-                        dataset.<br />
-                        • The MNIST dataset is a set of handwritten digits that is commonly used to train machine
-                        learning models.<br />
-                        • Neural uses a coevolutionary algorithm to evolve a network of interconnected nodes that can
-                        detect numbers in the MNIST dataset.<br />
-                        • The network was developed as part of a research project to explore the use of coevolutionary
-                        algorithms for developing machine learning models on the CE calculator.
-                </div>
-            </div>
-        </div>
-
     </div>
 </section>
 
