@@ -17,7 +17,8 @@ def populate():
         occupation='Software Engineer',
         linkedin_link='https://www.linkedin.com/in/alvajoy-asante/',
         github_link='https://github.com/AlvajoyAsante',
-        youtube_link='https://www.youtube.com/@alvajoyasante'
+        youtube_link='https://www.youtube.com/@alvajoyasante',
+        youtube_channel_id='UCH5z7WzZqLOmv6aAblt4Waw'
     )
 
 if __name__ == '__main__':
