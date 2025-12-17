@@ -61,7 +61,7 @@ def send_email(request):
                 subject,
                 body,
                 settings.EMAIL_HOST_USER, # From email
-                [personal_info.email], # To email
+                [personal_info.email.strip()], # To email
                 fail_silently=False,
             )
 
