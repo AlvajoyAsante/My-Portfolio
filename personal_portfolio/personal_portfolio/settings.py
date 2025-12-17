@@ -25,9 +25,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-nydv0g%9qpj7tx+pk)0)e299^qnsp_h*$n5b)c68_v_lmrjr*o'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://personalportfolio-240467114816.us-central1.run.app",
+    "https://alvajoyasante.com",
+]
 
 
 # Application definition
