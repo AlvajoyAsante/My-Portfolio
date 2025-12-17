@@ -1,5 +1,3 @@
-.github/
-
 # Python bytecode and caches
 __pycache__/
 *.py[cod]
