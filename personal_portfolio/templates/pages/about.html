@@ -38,11 +38,19 @@
 
             <div class="about__buttons">
                 <!--==================== Change your CV ====================-->
+                {% if personal_info.cv %}
+                <a download="" href="{{ personal_info.cv.url }}"
+                    class="button button--flex" target="_blank">
+                    Download CV
+                    <i class="uil uil-download-alt button__icon"></i>
+                </a>
+                {% else %}
                 <a download="" href="{% static 'pdf/resume_alvajoy_asante_november_2023.pdf' %}"
                     class="button button--flex" target="_blank">
                     Download CV
                     <i class="uil uil-download-alt button__icon"></i>
                 </a>
+                {% endif %}
             </div>
         </div>
     </div>

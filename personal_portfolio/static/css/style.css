@@ -667,6 +667,8 @@ img {
   display: flex;
   justify-content: space-evenly;
   margin-bottom: var(--mb-2);
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 .qualification__button {
@@ -1057,7 +1059,7 @@ img {
 .footer__copy {
   font-size: var(--smaller-font-size);
   text-align: center;
-  color: var(--text-color-light);
+  color: #FFF;
   margin-top: var(--mb-3);
 }
 
@@ -1141,6 +1143,11 @@ img {
 
   .qualification__data {
     gap: .5rem;
+  }
+
+  .qualification__button {
+    font-size: var(--smaller-font-size);
+    margin: 0 .25rem;
   }
 
   .services__container {

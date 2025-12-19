@@ -13,6 +13,7 @@ class PersonalInfo(models.Model):
     github_link = models.URLField(blank=True, null=True)
     youtube_link = models.URLField(blank=True, null=True)
     youtube_channel_id = models.CharField(max_length=100, blank=True, null=True)
+    cv = models.FileField(upload_to='cvs/', blank=True, null=True)
 
     class Meta:
         verbose_name_plural = "Personal Info"
