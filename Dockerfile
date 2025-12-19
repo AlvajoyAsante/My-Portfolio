@@ -26,6 +26,7 @@ RUN python manage.py collectstatic --noinput
 
 # Run migrations and populate data
 RUN python manage.py migrate && \
+    python create_superuser.py && \
     python populate_personal_info.py && \
     python populate_skills.py && \
     python populate_qualifications.py && \

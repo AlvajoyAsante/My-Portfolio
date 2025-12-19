@@ -12,7 +12,7 @@ class Qualification(models.Model):
 
     title = models.CharField(max_length=200)
     subtitle = models.CharField(max_length=200)
-    date_range = models.CharField(max_length=100)
+    # date_range field removed, using property instead
     category = models.CharField(max_length=20, choices=CATEGORY_CHOICES)
     link = models.URLField(blank=True, null=True)
     start_date = models.DateField(blank=True, null=True)
@@ -24,4 +24,20 @@ class Qualification(models.Model):
 
     def __str__(self):
         return f"{self.title} - {self.subtitle}"
+
+    @property
+    def date_range(self):
+        if not self.start_date:
+            return ""
+        
+        start_str = self.start_date.strftime('%b %Y')
+        
+        if self.end_date:
+            if self.start_date == self.end_date:
+                return start_str
+            end_str = self.end_date.strftime('%b %Y')
+        else:
+            end_str = "Present"
+            
+        return f"{start_str} - {end_str}"
 
