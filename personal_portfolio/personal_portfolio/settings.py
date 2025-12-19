@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -34,11 +34,29 @@ CSRF_TRUSTED_ORIGINS = [
     "https://alvajoyasante.com",
 ]
 
+if DEBUG:
+    SECRET_KEY = 'django-insecure-+&8k$y#(v1z@q3e@h9v$u3e1f4g7z8x2y3z4$5%6&7*8(9)0a!b@c#d$e%f^g&h*'
+    
+    ALLOWED_HOSTS += [
+        "localhost",
+        "127.0.0.1",
+    ]
+    
+    CSRF_TRUSTED_ORIGINS += [
+        "http://localhost",
+        "http://127.0.0.1",
+    ]
+
 # Trust the X-Forwarded-Proto header for SSL (required for Cloud Run)
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-SECURE_SSL_REDIRECT = True
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
+if not DEBUG:
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+    SECURE_SSL_REDIRECT = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+else:
+    SECURE_SSL_REDIRECT = False
+    SESSION_COOKIE_SECURE = False
+    CSRF_COOKIE_SECURE = False
 
 # Application definition
 
