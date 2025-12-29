@@ -90,10 +90,18 @@ def send_email(request):
             name = data.get('name')
             email = data.get('email')
             message = data.get('message')
+            recaptcha_token = data.get('recaptchaToken')
 
             if not name or not email or not message:
                 return JsonResponse({'status': 'error', 'message': 'All fields are required.'}, status=400)
+            
+            if not recaptcha_token:
+                 return JsonResponse({'status': 'error', 'message': 'reCAPTCHA verification failed.'}, status=400)
 
+            # TODO: Verify reCAPTCHA token with Google Enterprise API
+            # You need to set up Google Cloud credentials and use the library or REST API
+            # For now, we just check if the token is present
+            
             personal_info = PersonalInfo.objects.first()
             if not personal_info or not personal_info.email:
                 return JsonResponse({'status': 'error', 'message': 'Recipient email not configured.'}, status=500)

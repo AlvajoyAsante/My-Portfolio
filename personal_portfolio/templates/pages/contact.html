@@ -47,6 +47,9 @@
                 <textarea name="message" id="message" cols="0" rows="7" class="contact__input" required></textarea>
             </div>
 
+            <div class="g-recaptcha" data-sitekey="6LcB6zksAAAAAGuBENAIoLRDYgINw2XFgf54Y5jL" data-action="CONTACT"></div>
+            <br/>
+
             <div>
                 <button type="submit" class="button button--flex" style="border: none; cursor: pointer;">
                     Send Message
@@ -69,6 +72,15 @@
         const status = document.getElementById('form-status');
         const button = this.querySelector('button');
 
+        // Get reCAPTCHA token
+        const recaptchaToken = grecaptcha.enterprise.getResponse();
+
+        if (!recaptchaToken) {
+            status.textContent = 'Please complete the reCAPTCHA.';
+            status.style.color = 'red';
+            return;
+        }
+
         status.textContent = 'Sending...';
         status.style.color = 'var(--text-color)';
         button.disabled = true;
@@ -78,7 +90,7 @@
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ name, email, message })
+            body: JSON.stringify({ name, email, message, recaptchaToken })
         })
         .then(response => response.json())
         .then(data => {
@@ -86,6 +98,7 @@
                 status.textContent = data.message;
                 status.style.color = 'green';
                 document.getElementById('contact-form').reset();
+                grecaptcha.enterprise.reset(); // Reset reCAPTCHA
             } else {
                 status.textContent = data.message;
                 status.style.color = 'red';
